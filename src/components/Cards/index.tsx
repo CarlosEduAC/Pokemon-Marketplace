@@ -5,29 +5,30 @@ import Card from '../Card';
 
 import { Container } from './styles';
 
-interface Pokemon {
-  id: number;
-  image: string;
-  name: string;
-  price: string;
-}
-
 interface CardProps {
-  pokemonList: Pokemon[];
+  pokemonList: PokeApiResponse[];
+  filter: string;
   theme: object;
 }
 
-const Cards: React.FC<CardProps> = ({ pokemonList, theme }) => (
+export interface PokeApiResponse {
+  pokemon: {
+    name: string;
+    url: string;
+  };
+}
+
+const Cards: React.FC<CardProps> = ({ pokemonList, theme, filter }) => (
   <Container>
     <ThemeProvider theme={theme}>
-      {pokemonList.map((pokemon) => (
-        <Card
-          id={pokemon.id}
-          name={pokemon.name}
-          price={pokemon.price}
-          image={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
-        />
-      ))}
+      {pokemonList
+        .filter((data) => data.pokemon.name.includes(filter))
+        .map((value) => (
+          <Card
+            id={parseInt(value.pokemon.url.split('/')[6], 10)}
+            name={value.pokemon.name}
+          />
+        ))}
     </ThemeProvider>
   </Container>
 );

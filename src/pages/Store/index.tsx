@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import Header from '../../components/Header';
-import Main from '../../components/Cards';
+import Main from '../../components/Main';
 
 import LogoImg from '../../assets/logo.png';
 import DarkTheme from '../../styles/dark';
@@ -32,10 +32,12 @@ const Store: React.FC = () => {
           LogoImg={LogoImg}
           type={type}
           name={pokemonName}
+          value={pokemonName}
           onChange={(e) => setPokemonName(e.target.value)}
         />
 
         <Main
+          filter={pokemonName}
           type={type}
           theme={
             type === 'dark' ? DarkTheme : type === 'fire' ? FireTheme : IceTheme

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Cards from '../Cards';
+import Cards, { PokeApiResponse } from '../Cards';
 import Cart from '../Cart';
 
 import api from '../../services/api';
@@ -10,47 +10,25 @@ import { Container } from './styles';
 interface MainProps {
   type: string;
   theme: object;
+  filter: string;
 }
 
-interface Pokemon {
-  id: number;
-  image: string;
-  name: string;
-  price: string;
-}
-
-interface PokemonProps {
-  pokemon: {
-    name: string;
-    url: string;
-  };
-}
-
-const Main: React.FC<MainProps> = ({ type, theme }) => {
-  const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
+const Main: React.FC<MainProps> = ({ type, theme, filter }) => {
+  const [pokemonList, setPokemonList] = useState<PokeApiResponse[]>([]);
 
   useEffect(() => {
-    api.get(`/type/${type}`).then((response) => {
-      const pokemons = response.data.pokemon.map((data: PokemonProps) => {
-        const id = parseInt(data.pokemon.url.split('/')[6], 10);
+    async function ConsumePokeApi() {
+      const response = await api.get(`/type/${type}`);
 
-        return {
-          id,
-          image: `https://pokeres.bastionbot.org/images/pokemon/${id}.png`,
-          name: data.pokemon.name,
-          price: id,
-        };
+      setPokemonList(response.data.pokemon);
+    }
 
-        setPokemonList(pokemons);
-      });
-
-      return pokemons;
-    });
-  }, [pokemonList, type]);
+    ConsumePokeApi();
+  }, [type]);
 
   return (
     <Container>
-      <Cards pokemonList={pokemonList} theme={theme} />
+      <Cards pokemonList={pokemonList} filter={filter} theme={theme} />
       <Cart theme={theme} />
     </Container>
   );

@@ -7,9 +7,7 @@ import Store from '../pages/Store';
 const Routes: React.FC = () => (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route path="/dark" component={Store} />
-    <Route path="/fire" component={Store} />
-    <Route path="/ice" component={Store} />
+    <Route path="/:type" component={Store} />
   </Switch>
 );
 
