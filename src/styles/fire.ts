@@ -1,0 +1,5 @@
+export default {
+  primary: '#e61400',
+  primaryLight: '#ff5a33',
+  primaryDark: '#ab0000',
+};
