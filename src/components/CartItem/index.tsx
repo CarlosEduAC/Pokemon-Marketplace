@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ImPlus, ImMinus } from 'react-icons/im';
 
 import { PokemonSelected } from '../Main';
@@ -6,37 +6,33 @@ import { PokemonSelected } from '../Main';
 import PokeCoinImg from '../../assets/pokecoin.png';
 
 import { Container } from './styles';
+import { Pokemon } from '../Card';
 
-const CartItem: React.FC<PokemonSelected> = ({
-  id,
-  name,
-  price,
-  image,
-  quantity,
-}) => {
-  const [amount, setAmount] = useState<number>(quantity);
+interface CartItemProps {
+  pokemon: PokemonSelected;
+  setPokemonSelected(pokemon: Pokemon, minus?: boolean): void;
+}
 
+const CartItem: React.FC<CartItemProps> = ({ pokemon, setPokemonSelected }) => {
   const onChangePlus = () => {
-    console.log('Plus', amount);
-    setAmount(amount + 1);
+    setPokemonSelected(pokemon);
   };
 
   const onChangeMinus = () => {
-    console.log('Minus', amount);
-    setAmount(amount - 1);
+    setPokemonSelected(pokemon, true);
   };
 
   return (
-    <Container key={id}>
-      <img src={image} alt="PokeCoin" />
-      <strong>{name}</strong>
+    <Container key={pokemon.id}>
+      <img src={pokemon.image} alt="PokeCoin" />
+      <strong>{pokemon.name}</strong>
 
       <div className="cart-item">
         <div className="cart-qtd">
           <button type="button" onClick={onChangePlus}>
             <ImPlus size={12} />
           </button>
-          <input value={amount} onChange={() => setAmount(quantity)} />
+          <span>{pokemon.quantity}</span>
           <button type="button" onClick={onChangeMinus}>
             <ImMinus size={12} />
           </button>
@@ -44,7 +40,7 @@ const CartItem: React.FC<PokemonSelected> = ({
 
         <figure>
           <img src={PokeCoinImg} alt="PokeCoin" />
-          <figcaption>{price}</figcaption>
+          <figcaption>{pokemon.price}</figcaption>
         </figure>
       </div>
     </Container>

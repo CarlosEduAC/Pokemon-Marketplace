@@ -32,14 +32,26 @@ const Main: React.FC<MainProps> = ({ type, theme, filter }) => {
     }
 
     ConsumePokeApi();
-  }, [type, pokemonSelectedList]);
+  }, [type]);
 
-  const setPokemonSelected = (pokemon: Pokemon): void => {
+  const setPokemonSelected = (pokemon: Pokemon, minus?: boolean): void => {
     const checkPokemonExists = pokemonSelectedList.findIndex(
       (pokemonSelected) => pokemonSelected.name === pokemon.name,
     );
 
-    if (checkPokemonExists < 0) {
+    if (minus) {
+      const auxPokemonSelectedList = pokemonSelectedList;
+
+      if (auxPokemonSelectedList[checkPokemonExists].quantity > 0) {
+        auxPokemonSelectedList[checkPokemonExists].quantity -= 1;
+
+        setPokemonSelectedList(auxPokemonSelectedList);
+      } else {
+        auxPokemonSelectedList.splice(checkPokemonExists, 1);
+
+        setPokemonSelectedList(auxPokemonSelectedList);
+      }
+    } else if (checkPokemonExists < 0) {
       setPokemonSelectedList([
         ...pokemonSelectedList,
         { ...pokemon, quantity: 1 },
@@ -51,6 +63,7 @@ const Main: React.FC<MainProps> = ({ type, theme, filter }) => {
 
       setPokemonSelectedList(auxPokemonSelectedList);
     }
+
     console.log(pokemonSelectedList);
   };
 
@@ -62,7 +75,11 @@ const Main: React.FC<MainProps> = ({ type, theme, filter }) => {
         theme={theme}
         setPokemonSelected={setPokemonSelected}
       />
-      <Cart theme={theme} pokemonSelectedList={pokemonSelectedList} />
+      <Cart
+        theme={theme}
+        pokemonSelectedList={pokemonSelectedList}
+        setPokemonSelected={setPokemonSelected}
+      />
     </Container>
   );
 };

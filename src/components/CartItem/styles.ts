@@ -48,11 +48,13 @@ export const Container = styled.div`
         }
       }
 
-      input {
+      span {
         width: 25px;
         height: 25px;
         border: none;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
     figure {
