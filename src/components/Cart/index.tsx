@@ -4,29 +4,34 @@ import { ThemeProvider } from 'styled-components';
 import PokeCoinImg from '../../assets/pokecoin.png';
 
 import CartItem from '../CartItem';
+import { PokemonSelected } from '../Main';
 
 import { Container } from './styles';
 
 interface CartProps {
   theme: object;
+  pokemonSelectedList: PokemonSelected[];
 }
 
-const Cart: React.FC<CartProps> = ({ theme }) => (
+const Cart: React.FC<CartProps> = ({ theme, pokemonSelectedList }) => (
   <Container>
     <header>
       <h1>Carrinho</h1>
     </header>
     <ul>
       <ThemeProvider theme={theme}>
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
+        {pokemonSelectedList &&
+          pokemonSelectedList.map((pokemon) => {
+            return (
+              <CartItem
+                id={pokemon.id}
+                name={pokemon.name}
+                image={pokemon.image}
+                price={pokemon.price}
+                quantity={pokemon.quantity}
+              />
+            );
+          })}
       </ThemeProvider>
     </ul>
     <footer>
@@ -38,7 +43,7 @@ const Cart: React.FC<CartProps> = ({ theme }) => (
         </figure>
       </div>
 
-      <button type="button">Finalizar</button>
+      <button type="submit">Finalizar</button>
     </footer>
   </Container>
 );

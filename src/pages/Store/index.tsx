@@ -13,7 +13,7 @@ import IceTheme from '../../styles/ice';
 import { Container } from './styles';
 
 interface ParamsProps {
-  type: string;
+  type: 'dark' | 'fire' | 'ice';
 }
 
 const Store: React.FC = () => {
@@ -31,7 +31,7 @@ const Store: React.FC = () => {
         <Header
           LogoImg={LogoImg}
           type={type}
-          name={pokemonName}
+          name="search"
           value={pokemonName}
           onChange={(e) => setPokemonName(e.target.value)}
         />

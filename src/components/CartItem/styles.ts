@@ -32,11 +32,12 @@ export const Container = styled.div`
       border: 2px solid #dddddd;
       margin-right: 10px;
 
-      span {
-        cursor: pointer;
+      button {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        border: 0;
         width: 12px;
         width: 25px;
         height: 25px;

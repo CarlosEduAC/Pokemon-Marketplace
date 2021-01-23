@@ -12,6 +12,7 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-transform: capitalize;
 
   box-shadow: 1px 1px 7px 2px #a8a8b3;
   transition: transform 0.2s;
@@ -62,7 +63,7 @@ export const Container = styled.section`
       strong {
         margin-top: 8px;
         margin-bottom: 8px;
-        font-size: 1.3em;
+        font-size: 1.2em;
         color: ${(props) => props.theme.textColor};
         font-family: 'Roboto', sans-serif;
       }
