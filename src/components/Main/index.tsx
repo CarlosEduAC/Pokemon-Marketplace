@@ -17,6 +17,8 @@ interface MainProps {
 
 const Main: React.FC<MainProps> = ({ type, theme, filter }) => {
   const { windowWidth } = useWindow();
+
+  const [showInfo, setShowInfo] = useState<number>(0);
   const [pokemonList, setPokemonList] = useState<PokeApiResponse[]>([]);
   const [showCartMobile, setShowCartMobile] = useState<boolean>(false);
 
@@ -34,11 +36,21 @@ const Main: React.FC<MainProps> = ({ type, theme, filter }) => {
     setShowCartMobile(!showCartMobile);
   };
 
+  const handleShowInfo = (id: number) => {
+    setShowInfo(id);
+  };
+
   return (
     <>
       {windowWidth > 780 ? (
         <Container>
-          <Cards pokemonList={pokemonList} filter={filter} theme={theme} />
+          <Cards
+            pokemonList={pokemonList}
+            filter={filter}
+            theme={theme}
+            showInfo={showInfo}
+            handleShowInfo={handleShowInfo}
+          />
           <Cart theme={theme} />
         </Container>
       ) : (
@@ -50,7 +62,13 @@ const Main: React.FC<MainProps> = ({ type, theme, filter }) => {
             {showCartMobile ? (
               <Cart theme={theme} />
             ) : (
-              <Cards pokemonList={pokemonList} filter={filter} theme={theme} />
+              <Cards
+                pokemonList={pokemonList}
+                filter={filter}
+                theme={theme}
+                showInfo={showInfo}
+                handleShowInfo={handleShowInfo}
+              />
             )}
           </div>
         </ContainerMobile>

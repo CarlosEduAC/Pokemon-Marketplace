@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ImPlus } from 'react-icons/im';
+import { ImPlus, ImInfo } from 'react-icons/im';
 
 import PokeCoinImg from '../../assets/pokecoin.png';
 
@@ -11,9 +11,10 @@ import { Container } from './styles';
 interface CardProps {
   id: number;
   name: string;
+  handleShowInfo(pokemonId: number): void;
 }
 
-const Card: React.FC<CardProps> = ({ id, name }) => {
+const Card: React.FC<CardProps> = ({ id, name, handleShowInfo }) => {
   const { addToCart } = useCart();
   const [pokemon, setPokemon] = useState<Pokemon>();
 
@@ -46,6 +47,13 @@ const Card: React.FC<CardProps> = ({ id, name }) => {
   return (
     <Container key={id}>
       <figure>
+        <button
+          className="button-info"
+          type="button"
+          onClick={() => handleShowInfo(id)}
+        >
+          <ImInfo className="info-icon" />
+        </button>
         <img src={pokemon?.image} alt={pokemon?.name} />
         <figcaption>
           <strong>{pokemon?.name}</strong>

@@ -5,7 +5,7 @@ export const Container = styled.section`
   width: 225px;
   height: 320px;
   background-color: #ffffff;
-  border: 1px solid #a8a8b3;
+  border: 1px solid #dddddd;
   border-radius: 4px;
   padding: 5px;
   margin: 10px 15px;
@@ -14,7 +14,7 @@ export const Container = styled.section`
   align-items: center;
   text-transform: capitalize;
 
-  box-shadow: 1px 1px 7px 2px #a8a8b3;
+  box-shadow: 1px 1px 7px 2px #dddddd;
   transition: transform 0.2s;
 
   :hover {
@@ -40,11 +40,34 @@ export const Container = styled.section`
       width: 75%;
       height: 50%;
       border-radius: 50%;
-      background-color: #fff;
+      background-color: #ffffff;
       opacity: 0.7;
       position: absolute;
       top: 8%;
       left: 13%;
+    }
+    button.button-info {
+      width: 100%;
+
+      display: flex;
+      justify-content: flex-end;
+
+      padding-right: 10px;
+
+      border: none;
+      background: none;
+
+      svg.info-icon {
+        width: 20px;
+        height: 20px;
+        color: #ffffff;
+
+        :hover {
+          width: 25px;
+          height: 25px;
+          color: #dddddd;
+        }
+      }
     }
 
     img {
@@ -84,6 +107,7 @@ export const Container = styled.section`
           font-weight: 500;
         }
       }
+
       button {
         width: 100%;
         height: 36px;

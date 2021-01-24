@@ -18,12 +18,6 @@ export const Container = styled.div`
   :hover {
     background: #f1f1f1;
     input {
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-
       background: #f1f1f1;
     }
     svg {

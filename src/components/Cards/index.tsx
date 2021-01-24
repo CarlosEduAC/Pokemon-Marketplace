@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import Card from '../Card';
+import CardInfo from '../CardInfo';
 
 import { Container } from './styles';
 
 interface CardProps {
   pokemonList: PokeApiResponse[];
   filter: string;
+  showInfo: number;
   theme: object;
+  handleShowInfo(id: number): void;
 }
 
 export interface PokeApiResponse {
@@ -18,20 +21,36 @@ export interface PokeApiResponse {
   };
 }
 
-const Cards: React.FC<CardProps> = ({ pokemonList, theme, filter }) => (
-  <Container>
-    <ThemeProvider theme={theme}>
-      {pokemonList
-        .filter((data) => data.pokemon.name.includes(filter))
-        .map((value) => (
-          <Card
-            key={parseInt(value.pokemon.url.split('/')[6], 10)}
-            id={parseInt(value.pokemon.url.split('/')[6], 10)}
-            name={value.pokemon.name}
-          />
-        ))}
-    </ThemeProvider>
-  </Container>
-);
+const Cards: React.FC<CardProps> = ({
+  pokemonList,
+  theme,
+  filter,
+  showInfo,
+  handleShowInfo,
+}) => {
+  const backToCatalog = () => {
+    handleShowInfo(0);
+  };
 
+  return (
+    <Container>
+      <ThemeProvider theme={theme}>
+        {showInfo === 0 ? (
+          pokemonList
+            .filter((data) => data.pokemon.name.includes(filter))
+            .map((value) => (
+              <Card
+                key={parseInt(value.pokemon.url.split('/')[6], 10)}
+                id={parseInt(value.pokemon.url.split('/')[6], 10)}
+                name={value.pokemon.name}
+                handleShowInfo={handleShowInfo}
+              />
+            ))
+        ) : (
+          <CardInfo id={showInfo} backToCatalog={backToCatalog} />
+        )}
+      </ThemeProvider>
+    </Container>
+  );
+};
 export default Cards;
