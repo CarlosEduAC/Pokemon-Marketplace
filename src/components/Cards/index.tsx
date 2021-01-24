@@ -1,13 +1,12 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import Card, { Pokemon } from '../Card';
+import Card from '../Card';
 
 import { Container } from './styles';
 
 interface CardProps {
   pokemonList: PokeApiResponse[];
-  setPokemonSelected(pokemon: Pokemon): void;
   filter: string;
   theme: object;
 }
@@ -19,12 +18,7 @@ export interface PokeApiResponse {
   };
 }
 
-const Cards: React.FC<CardProps> = ({
-  pokemonList,
-  theme,
-  filter,
-  setPokemonSelected,
-}) => (
+const Cards: React.FC<CardProps> = ({ pokemonList, theme, filter }) => (
   <Container>
     <ThemeProvider theme={theme}>
       {pokemonList
@@ -34,7 +28,6 @@ const Cards: React.FC<CardProps> = ({
             key={parseInt(value.pokemon.url.split('/')[6], 10)}
             id={parseInt(value.pokemon.url.split('/')[6], 10)}
             name={value.pokemon.name}
-            setPokemonSelected={setPokemonSelected}
           />
         ))}
     </ThemeProvider>

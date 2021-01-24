@@ -37,6 +37,8 @@
       "react/jsx-one-expression-per-line": "off",
       "react/jsx-props-no-spreading": "off",
       "react/prop-types": "off",
+      "array-callback-return": "off",
+      "consistent-return": "off",
       "no-unused-expressions": "off",
       "import/extensions": [
         "error",

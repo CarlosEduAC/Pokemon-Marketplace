@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ImPlus, ImMinus } from 'react-icons/im';
-
-import { PokemonSelected } from '../Main';
 
 import PokeCoinImg from '../../assets/pokecoin.png';
 
 import { Container } from './styles';
-import { Pokemon } from '../Card';
+
+import { useCart, Pokemon } from '../../contexts/cart';
 
 interface CartItemProps {
-  pokemon: PokemonSelected;
-  setPokemonSelected(pokemon: Pokemon, minus?: boolean): void;
+  pokemon: Pokemon;
 }
 
-const CartItem: React.FC<CartItemProps> = ({ pokemon, setPokemonSelected }) => {
+const CartItem: React.FC<CartItemProps> = ({ pokemon }) => {
+  const { increment, decrement } = useCart();
+
   const onChangePlus = () => {
-    setPokemonSelected(pokemon);
+    increment(pokemon.name);
   };
 
   const onChangeMinus = () => {
-    setPokemonSelected(pokemon, true);
+    decrement(pokemon.name);
   };
 
   return (

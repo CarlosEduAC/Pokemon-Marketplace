@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 
-interface Pokemon {
+export interface Pokemon {
   id: number;
   name: string;
   image: string;
@@ -8,25 +8,31 @@ interface Pokemon {
   quantity: number;
 }
 
-interface AuthContextData {
+interface CartContextData {
   pokemonListSelected: Pokemon[];
+  totalPrice: number;
   addToCart(sPokemon: Pokemon): void;
   increment(name: string): void;
   decrement(name: string): void;
   setEmpty(): void;
 }
 
-const AuthContext = createContext<AuthContextData>({} as AuthContextData);
+const CartContext = createContext<CartContextData>({} as CartContextData);
 
-export const AuthProvider: React.FC = ({ children }) => {
+export const CartProvider: React.FC = ({ children }) => {
   const [pokemonListSelected, setPokemonListSelected] = useState<Pokemon[]>([]);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
 
   useEffect(() => {
     async function loadStoragedData(): Promise<void> {
       const items = localStorage.getItem('@Cart:Pokemon');
+      const total = localStorage.getItem('@Cart:TotalPrice')
+        ? localStorage.getItem('@Cart:TotalPrice')
+        : '0';
 
       if (items) {
         setPokemonListSelected(JSON.parse(items));
+        setTotalPrice(JSON.parse(total as string));
       }
     }
 
@@ -35,6 +41,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('@Cart:Pokemon', JSON.stringify(pokemonListSelected));
+    localStorage.setItem('@Cart:TotalPrice', JSON.stringify(totalPrice));
   }, [pokemonListSelected]);
 
   const addToCart = (pokemonSelected: Pokemon) => {
@@ -52,6 +59,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         quantity: 1,
       };
 
+      setTotalPrice(totalPrice + parseInt(price, 10));
       setPokemonListSelected([...pokemonListSelected, newPokemon]);
     } else {
       const items = pokemonListSelected.map((element) => {
@@ -64,8 +72,12 @@ export const AuthProvider: React.FC = ({ children }) => {
             price,
             quantity: quantity + 1,
           };
+
+          setTotalPrice(totalPrice + parseInt(price, 10));
+
           return newPokemon;
         }
+
         return element;
       });
 
@@ -75,8 +87,10 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   const setEmpty = () => {
     localStorage.setItem('@Cart:Pokemon', JSON.stringify([]));
+    localStorage.setItem('@Cart:TotalPrice', JSON.stringify(0));
 
     setPokemonListSelected([]);
+    setTotalPrice(0);
   };
 
   const increment = (name: string) => {
@@ -91,6 +105,8 @@ export const AuthProvider: React.FC = ({ children }) => {
           quantity: quantity + 1,
         };
 
+        setTotalPrice(totalPrice + parseInt(price, 10));
+
         return newPokemon;
       }
 
@@ -101,20 +117,27 @@ export const AuthProvider: React.FC = ({ children }) => {
   };
 
   const decrement = (name: string) => {
-    const items = pokemonListSelected.map((element) => {
-      if (name === element.name) {
-        const { name: elementName, price, quantity } = element;
+    const items = pokemonListSelected.map((pokemon) => {
+      if (name === pokemon.name) {
+        const { id, image, name: pokemonName, price, quantity } = pokemon;
 
         const newPokemon = {
-          name: elementName,
+          id,
+          image,
+          name: pokemonName,
           price,
           quantity: quantity - 1,
         };
 
+        setTotalPrice(totalPrice - parseInt(price, 10));
+
         if (newPokemon.quantity > 0) {
           return newPokemon;
         }
+
+        return;
       }
+      return pokemon;
     });
 
     const filtered = items.filter(Boolean);
@@ -123,16 +146,23 @@ export const AuthProvider: React.FC = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider
-      value={{ pokemonListSelected, increment, decrement, addToCart, setEmpty }}
+    <CartContext.Provider
+      value={{
+        pokemonListSelected,
+        totalPrice,
+        increment,
+        decrement,
+        addToCart,
+        setEmpty,
+      }}
     >
       {children}
-    </AuthContext.Provider>
+    </CartContext.Provider>
   );
 };
 
-export function useAuth(): AuthContextData {
-  const context = useContext(AuthContext);
+export function useCart(): CartContextData {
+  const context = useContext(CartContext);
 
   return context;
 }

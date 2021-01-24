@@ -4,23 +4,17 @@ import { ImPlus } from 'react-icons/im';
 import PokeCoinImg from '../../assets/pokecoin.png';
 
 import api from '../../services/api';
+import { useCart, Pokemon } from '../../contexts/cart';
 
 import { Container } from './styles';
-
-export interface Pokemon {
-  id: number;
-  image: string;
-  name: string;
-  price: string;
-}
 
 interface CardProps {
   id: number;
   name: string;
-  setPokemonSelected(pokemon: Pokemon): void;
 }
 
-const Card: React.FC<CardProps> = ({ id, name, setPokemonSelected }) => {
+const Card: React.FC<CardProps> = ({ id, name }) => {
+  const { addToCart } = useCart();
   const [pokemon, setPokemon] = useState<Pokemon>();
 
   useEffect(() => {
@@ -42,6 +36,7 @@ const Card: React.FC<CardProps> = ({ id, name, setPokemonSelected }) => {
         image,
         name,
         price: response.data.base_experience,
+        quantity: 0,
       });
     }
 
@@ -58,12 +53,7 @@ const Card: React.FC<CardProps> = ({ id, name, setPokemonSelected }) => {
             <img src={PokeCoinImg} alt={pokemon?.price} />
             <span>{pokemon?.price}</span>
           </div>
-          <button
-            type="button"
-            onClick={() => {
-              setPokemonSelected(pokemon as Pokemon);
-            }}
-          >
+          <button type="button" onClick={() => addToCart(pokemon as Pokemon)}>
             <span>Adicionar</span>
             <ImPlus size={18} />
           </button>
