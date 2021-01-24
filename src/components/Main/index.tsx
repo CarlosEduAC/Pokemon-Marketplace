@@ -4,9 +4,10 @@ import Cards, { PokeApiResponse } from '../Cards';
 import Cart from '../Cart';
 
 import api from '../../services/api';
-import { CartProvider } from '../../contexts/cart';
 
-import { Container } from './styles';
+import { useWindow } from '../../contexts/WindowDimensionContext';
+
+import { Container, ContainerMobile } from './styles';
 
 interface MainProps {
   type: string;
@@ -15,7 +16,9 @@ interface MainProps {
 }
 
 const Main: React.FC<MainProps> = ({ type, theme, filter }) => {
+  const { windowDimensions } = useWindow();
   const [pokemonList, setPokemonList] = useState<PokeApiResponse[]>([]);
+  const [showCartMobile, setShowCartMobile] = useState<boolean>(false);
 
   useEffect(() => {
     async function ConsumePokeApi() {
@@ -27,13 +30,32 @@ const Main: React.FC<MainProps> = ({ type, theme, filter }) => {
     ConsumePokeApi();
   }, [type]);
 
+  const handleCart = () => {
+    setShowCartMobile(!showCartMobile);
+  };
+
   return (
-    <Container>
-      <CartProvider>
-        <Cards pokemonList={pokemonList} filter={filter} theme={theme} />
-        <Cart theme={theme} />
-      </CartProvider>
-    </Container>
+    <>
+      {windowDimensions > 780 ? (
+        <Container>
+          <Cards pokemonList={pokemonList} filter={filter} theme={theme} />
+          <Cart theme={theme} />
+        </Container>
+      ) : (
+        <ContainerMobile>
+          <button type="button" onClick={() => handleCart()}>
+            {showCartMobile ? 'Catálogo' : 'Carrinho'}
+          </button>
+          <div>
+            {showCartMobile ? (
+              <Cart theme={theme} />
+            ) : (
+              <Cards pokemonList={pokemonList} filter={filter} theme={theme} />
+            )}
+          </div>
+        </ContainerMobile>
+      )}
+    </>
   );
 };
 

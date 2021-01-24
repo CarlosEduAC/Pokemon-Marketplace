@@ -4,7 +4,7 @@ import { ImPlus } from 'react-icons/im';
 import PokeCoinImg from '../../assets/pokecoin.png';
 
 import api from '../../services/api';
-import { useCart, Pokemon } from '../../contexts/cart';
+import { useCart, Pokemon } from '../../contexts/CartContext';
 
 import { Container } from './styles';
 

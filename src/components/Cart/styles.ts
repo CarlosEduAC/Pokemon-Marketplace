@@ -6,12 +6,17 @@ export const Container = styled.div`
   color: #000000;
   background-color: #ffffff;
   border: 2px solid #dddddd;
-  min-width: 500px;
+  min-width: 450px;
   max-height: 768px;
   text-transform: capitalize;
+  transition: border 0.2s;
 
   display: flex;
   flex-direction: column;
+
+  :hover {
+    border: 4px solid #dddddd;
+  }
 
   header {
     display: flex;

@@ -5,7 +5,7 @@ import PokeCoinImg from '../../assets/pokecoin.png';
 
 import { Container } from './styles';
 
-import { useCart, Pokemon } from '../../contexts/cart';
+import { useCart, Pokemon } from '../../contexts/CartContext';
 
 interface CartItemProps {
   pokemon: Pokemon;

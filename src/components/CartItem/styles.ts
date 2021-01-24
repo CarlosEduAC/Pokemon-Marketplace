@@ -38,9 +38,11 @@ export const Container = styled.div`
         justify-content: center;
 
         border: 0;
-        width: 12px;
+        margin: 0;
         width: 25px;
         height: 25px;
+        color: #ffffff;
+        background-color: ${(props) => props.theme.primary};
         transition: background-color 0.2s;
 
         :hover {

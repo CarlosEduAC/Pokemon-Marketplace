@@ -44,8 +44,4 @@ export const Container = styled.div`
     color: ${(props) => props.theme.primary};
     padding-left: 5px;
   }
-
-  @media (max-width: 1024px) {
-    width: 45%;
-  }
 `;

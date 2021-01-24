@@ -6,7 +6,7 @@ import PokeCoinImg from '../../assets/pokecoin.png';
 
 import CartItem from '../CartItem';
 
-import { useCart } from '../../contexts/cart';
+import { useCart } from '../../contexts/CartContext';
 
 import { Container } from './styles';
 

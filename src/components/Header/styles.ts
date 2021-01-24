@@ -4,7 +4,6 @@ import { shade } from 'polished';
 export const Container = styled.header`
   width: 100%;
   height: 85px;
-  padding: 30px 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -16,13 +15,18 @@ export const Container = styled.header`
     align-items: center;
 
     img {
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
+
+      :hover {
+        width: 45px;
+        height: 45px;
+      }
     }
 
     figcaption {
-      margin-left: 5px;
-      font-size: 22px;
+      padding-left: 5px;
+      font-size: 26px;
       font-weight: 700;
       text-transform: capitalize;
 
