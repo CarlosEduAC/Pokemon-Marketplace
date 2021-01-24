@@ -11,7 +11,7 @@ export const Container = styled.div<ContainerProps>`
   background-color: #ffffff;
   border: 2px solid #dddddd;
   min-width: 450px;
-  max-height: ${(props) => `${props.windowDimensions * 0.8}px`};
+  max-height: ${(props) => `${props.windowDimensions * 0.75}px`};
   text-transform: capitalize;
   transition: border 0.2s;
 
@@ -28,13 +28,13 @@ export const Container = styled.div<ContainerProps>`
     align-items: center;
 
     width: 100%;
-    height: 70px;
+    height: 50px;
     box-shadow: 1px 1px 5px #dddddd;
     margin-bottom: 4px;
 
     h1 {
       padding: 20px 8px;
-      font-size: 34px;
+      font-size: 26px;
       font-weight: 700;
     }
   }
@@ -66,7 +66,7 @@ export const Container = styled.div<ContainerProps>`
       margin: 15px 20px;
 
       strong {
-        font-size: 20px;
+        font-size: 18px;
       }
 
       figure {
@@ -82,14 +82,14 @@ export const Container = styled.div<ContainerProps>`
 
         figcaption {
           margin-left: 2px;
-          font-size: 20px;
+          font-size: 18px;
         }
       }
     }
 
     button {
-      width: 90%;
-      height: 50px;
+      width: 85%;
+      height: 45px;
       border-radius: 4px;
       color: #ffffff;
       font-weight: 700;

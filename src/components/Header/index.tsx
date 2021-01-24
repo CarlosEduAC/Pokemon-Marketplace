@@ -19,9 +19,8 @@ const Header: React.FC<HeaderProps> = ({ LogoImg, type, ...rest }) => {
   return (
     <Container>
       <figure>
-        <img src={LogoImg} alt="Pokémon Marketplace" />
-
-        <Link to="/">
+        <Link to={`/${type}`}>
+          <img src={LogoImg} alt="Pokémon Marketplace" />
           {windowWidth > 780 && <figcaption>{type} Store</figcaption>}
         </Link>
       </figure>

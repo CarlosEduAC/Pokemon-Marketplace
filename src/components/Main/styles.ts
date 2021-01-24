@@ -5,8 +5,7 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: space-around;
 
-  margin: 30px;
-  margin-right: 40px;
+  margin: 30px 40px 30px 0;
 
   strong {
     color: black;

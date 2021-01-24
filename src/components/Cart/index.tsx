@@ -22,13 +22,15 @@ const Cart: React.FC<CartProps> = ({ theme }) => {
   const { pokemonListSelected, totalPrice, setEmpty } = useCart();
 
   const handleSubmit = () => {
-    Swal.fire(
-      'Obrigado!!!',
-      `Você ganhou de volta ${Math.floor(totalPrice * 0.05)} Pokémoedas`,
-      'success',
-    );
+    if (totalPrice > 0) {
+      Swal.fire(
+        'Obrigado!!!',
+        `Você ganhou de volta ${Math.floor(totalPrice * 0.05)} Pokémoedas`,
+        'success',
+      );
 
-    setEmpty();
+      setEmpty();
+    }
   };
 
   return (
