@@ -14,7 +14,7 @@ interface HeaderProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Header: React.FC<HeaderProps> = ({ LogoImg, type, ...rest }) => {
-  const { windowDimensions } = useWindow();
+  const { windowWidth } = useWindow();
 
   return (
     <Container>
@@ -22,13 +22,13 @@ const Header: React.FC<HeaderProps> = ({ LogoImg, type, ...rest }) => {
         <img src={LogoImg} alt="Pokémon Marketplace" />
 
         <Link to="/">
-          {windowDimensions > 780 && <figcaption>{type} Store</figcaption>}
+          {windowWidth > 780 && <figcaption>{type} Store</figcaption>}
         </Link>
       </figure>
       <Search icon={ImSearch} {...rest} />
       <Link to="/">
         <ImArrowLeft size={32} />
-        {windowDimensions > 780 && 'Voltar'}
+        {windowWidth > 780 && 'Voltar'}
       </Link>
     </Container>
   );

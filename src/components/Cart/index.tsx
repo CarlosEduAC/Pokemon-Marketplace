@@ -8,6 +8,8 @@ import CartItem from '../CartItem';
 
 import { useCart } from '../../contexts/CartContext';
 
+import { useWindow } from '../../contexts/WindowDimensionContext';
+
 import { Container } from './styles';
 
 interface CartProps {
@@ -15,6 +17,8 @@ interface CartProps {
 }
 
 const Cart: React.FC<CartProps> = ({ theme }) => {
+  const { windowHeight } = useWindow();
+
   const { pokemonListSelected, totalPrice, setEmpty } = useCart();
 
   const handleSubmit = () => {
@@ -28,7 +32,7 @@ const Cart: React.FC<CartProps> = ({ theme }) => {
   };
 
   return (
-    <Container>
+    <Container windowDimensions={windowHeight}>
       <header>
         <h1>Carrinho</h1>
       </header>

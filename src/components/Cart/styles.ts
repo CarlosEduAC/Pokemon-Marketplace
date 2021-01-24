@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+interface ContainerProps {
+  windowDimensions: number;
+}
+
+export const Container = styled.div<ContainerProps>`
   flex: 1;
 
   color: #000000;
   background-color: #ffffff;
   border: 2px solid #dddddd;
   min-width: 450px;
-  max-height: 768px;
+  max-height: ${(props) => `${props.windowDimensions * 0.8}px`};
   text-transform: capitalize;
   transition: border 0.2s;
 

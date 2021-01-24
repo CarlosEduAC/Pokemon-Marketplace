@@ -20,7 +20,7 @@ export const ContainerMobile = styled.div`
   align-items: center;
 
   button {
-    width: 90%;
+    width: 60%;
     height: 50px;
     border: 0;
     border-radius: 4px;
@@ -39,11 +39,5 @@ export const ContainerMobile = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  div {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
   }
 `;

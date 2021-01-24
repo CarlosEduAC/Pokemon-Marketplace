@@ -1,7 +1,8 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 
 interface WindowDimensionContextData {
-  windowDimensions: number;
+  windowWidth: number;
+  windowHeight: number;
 }
 
 const WindowDimensionContext = createContext<WindowDimensionContextData>(
@@ -9,28 +10,34 @@ const WindowDimensionContext = createContext<WindowDimensionContextData>(
 );
 
 export const WindowDimensionProvider: React.FC = ({ children }) => {
-  const getWindowDimensions = (): number => {
+  const getWindowWidth = (): number => {
     const { innerWidth } = window;
 
     return innerWidth;
   };
 
-  const [windowDimensions, setWindowDimensions] = useState<number>(
-    getWindowDimensions(),
-  );
+  const getWindowHeight = (): number => {
+    const { innerHeight } = window;
+
+    return innerHeight;
+  };
+
+  const [windowWidth, setWindowWidth] = useState<number>(getWindowWidth());
+  const [windowHeight, setWindowHeight] = useState<number>(getWindowHeight());
 
   useEffect(() => {
     function handleResize(): void {
-      setWindowDimensions(getWindowDimensions());
+      setWindowWidth(getWindowWidth());
+      setWindowHeight(getWindowHeight());
     }
 
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [getWindowDimensions]);
+  }, [getWindowWidth]);
 
   return (
-    <WindowDimensionContext.Provider value={{ windowDimensions }}>
+    <WindowDimensionContext.Provider value={{ windowWidth, windowHeight }}>
       {children}
     </WindowDimensionContext.Provider>
   );

@@ -16,7 +16,7 @@ interface MainProps {
 }
 
 const Main: React.FC<MainProps> = ({ type, theme, filter }) => {
-  const { windowDimensions } = useWindow();
+  const { windowWidth } = useWindow();
   const [pokemonList, setPokemonList] = useState<PokeApiResponse[]>([]);
   const [showCartMobile, setShowCartMobile] = useState<boolean>(false);
 
@@ -36,7 +36,7 @@ const Main: React.FC<MainProps> = ({ type, theme, filter }) => {
 
   return (
     <>
-      {windowDimensions > 780 ? (
+      {windowWidth > 780 ? (
         <Container>
           <Cards pokemonList={pokemonList} filter={filter} theme={theme} />
           <Cart theme={theme} />
