@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 import { ThemeProvider } from 'styled-components';
 
 import PokeCoinImg from '../../assets/pokecoin.png';
@@ -14,7 +15,17 @@ interface CartProps {
 }
 
 const Cart: React.FC<CartProps> = ({ theme }) => {
-  const { pokemonListSelected, totalPrice } = useCart();
+  const { pokemonListSelected, totalPrice, setEmpty } = useCart();
+
+  const handleSubmit = () => {
+    Swal.fire(
+      'Obrigado!!!',
+      `Você ganhou de volta ${Math.floor(totalPrice * 0.05)} Pokémoedas`,
+      'success',
+    );
+
+    setEmpty();
+  };
 
   return (
     <Container>
@@ -38,7 +49,9 @@ const Cart: React.FC<CartProps> = ({ theme }) => {
           </figure>
         </div>
 
-        <button type="submit">Finalizar</button>
+        <button type="button" onClick={handleSubmit}>
+          Finalizar
+        </button>
       </footer>
     </Container>
   );

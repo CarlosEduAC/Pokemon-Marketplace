@@ -14,14 +14,6 @@ interface CartItemProps {
 const CartItem: React.FC<CartItemProps> = ({ pokemon }) => {
   const { increment, decrement } = useCart();
 
-  const onChangePlus = () => {
-    increment(pokemon.name);
-  };
-
-  const onChangeMinus = () => {
-    decrement(pokemon.name);
-  };
-
   return (
     <Container key={pokemon.id}>
       <img src={pokemon.image} alt="PokeCoin" />
@@ -29,11 +21,11 @@ const CartItem: React.FC<CartItemProps> = ({ pokemon }) => {
 
       <div className="cart-item">
         <div className="cart-qtd">
-          <button type="button" onClick={onChangePlus}>
+          <button type="button" onClick={() => increment(pokemon.name)}>
             <ImPlus size={12} />
           </button>
           <span>{pokemon.quantity}</span>
-          <button type="button" onClick={onChangeMinus}>
+          <button type="button" onClick={() => decrement(pokemon.name)}>
             <ImMinus size={12} />
           </button>
         </div>
