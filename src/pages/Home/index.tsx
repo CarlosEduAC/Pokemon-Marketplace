@@ -44,6 +44,156 @@ const Home: React.FC = () => {
               <figcaption>Ice Store</figcaption>
             </Link>
           </figure>
+          <figure>
+            <Link to="/dark">
+              <img
+                src="https://pixelmonmod.com/w/images/f/f8/DarkType.png"
+                alt="Dark Type"
+              />
+
+              <figcaption>Dark Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/fire">
+              <img
+                src="https://pixelmonmod.com/w/images/7/79/FireType.png"
+                alt="Fire Type"
+              />
+
+              <figcaption>Fire Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/ice">
+              <img
+                src="https://pixelmonmod.com/w/images/1/10/IceType.png"
+                alt="Ice Type"
+              />
+
+              <figcaption>Ice Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/dark">
+              <img
+                src="https://pixelmonmod.com/w/images/f/f8/DarkType.png"
+                alt="Dark Type"
+              />
+
+              <figcaption>Dark Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/fire">
+              <img
+                src="https://pixelmonmod.com/w/images/7/79/FireType.png"
+                alt="Fire Type"
+              />
+
+              <figcaption>Fire Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/ice">
+              <img
+                src="https://pixelmonmod.com/w/images/1/10/IceType.png"
+                alt="Ice Type"
+              />
+
+              <figcaption>Ice Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/dark">
+              <img
+                src="https://pixelmonmod.com/w/images/f/f8/DarkType.png"
+                alt="Dark Type"
+              />
+
+              <figcaption>Dark Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/fire">
+              <img
+                src="https://pixelmonmod.com/w/images/7/79/FireType.png"
+                alt="Fire Type"
+              />
+
+              <figcaption>Fire Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/ice">
+              <img
+                src="https://pixelmonmod.com/w/images/1/10/IceType.png"
+                alt="Ice Type"
+              />
+
+              <figcaption>Ice Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/dark">
+              <img
+                src="https://pixelmonmod.com/w/images/f/f8/DarkType.png"
+                alt="Dark Type"
+              />
+
+              <figcaption>Dark Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/fire">
+              <img
+                src="https://pixelmonmod.com/w/images/7/79/FireType.png"
+                alt="Fire Type"
+              />
+
+              <figcaption>Fire Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/ice">
+              <img
+                src="https://pixelmonmod.com/w/images/1/10/IceType.png"
+                alt="Ice Type"
+              />
+
+              <figcaption>Ice Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/dark">
+              <img
+                src="https://pixelmonmod.com/w/images/f/f8/DarkType.png"
+                alt="Dark Type"
+              />
+
+              <figcaption>Dark Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/fire">
+              <img
+                src="https://pixelmonmod.com/w/images/7/79/FireType.png"
+                alt="Fire Type"
+              />
+
+              <figcaption>Fire Store</figcaption>
+            </Link>
+          </figure>
+          <figure>
+            <Link to="/ice">
+              <img
+                src="https://pixelmonmod.com/w/images/1/10/IceType.png"
+                alt="Ice Type"
+              />
+
+              <figcaption>Ice Store</figcaption>
+            </Link>
+          </figure>
         </main>
       </Container>
     </ThemeProvider>

@@ -6,7 +6,7 @@ export const Container = styled.div`
   color: #000000;
   background-color: #ffffff;
   border: 2px solid #dddddd;
-  min-width: 400px;
+  min-width: 500px;
   max-height: 768px;
   text-transform: capitalize;
 

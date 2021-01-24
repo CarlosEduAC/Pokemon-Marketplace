@@ -8,7 +8,7 @@ export const Container = styled.section`
   border: 1px solid #a8a8b3;
   border-radius: 4px;
   padding: 5px;
-  margin: 10px;
+  margin: 10px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
