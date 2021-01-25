@@ -5,6 +5,7 @@ import PokeCoinImg from '../../assets/pokecoin.png';
 
 import api from '../../services/api';
 import { useCart, Pokemon } from '../../contexts/CartContext';
+import { useWindow } from '../../contexts/WindowDimensionContext';
 
 import { Container } from './styles';
 
@@ -16,6 +17,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ id, name, handleShowInfo }) => {
   const { addToCart } = useCart();
+  const { windowWidth } = useWindow();
   const [pokemon, setPokemon] = useState<Pokemon>();
 
   useEffect(() => {
@@ -55,13 +57,17 @@ const Card: React.FC<CardProps> = ({ id, name, handleShowInfo }) => {
           <ImInfo className="info-icon" />
         </button>
 
-        <button
-          className="img-poke"
-          type="button"
-          onClick={() => handleShowInfo(id)}
-        >
+        {windowWidth > 780 ? (
+          <button
+            className="img-poke"
+            type="button"
+            onClick={() => handleShowInfo(id)}
+          >
+            <img src={pokemon?.image} alt={pokemon?.name} />
+          </button>
+        ) : (
           <img src={pokemon?.image} alt={pokemon?.name} />
-        </button>
+        )}
 
         <figcaption>
           <strong>{pokemon?.name}</strong>

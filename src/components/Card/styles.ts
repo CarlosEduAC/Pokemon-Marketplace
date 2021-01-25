@@ -84,6 +84,12 @@ export const Container = styled.section`
       }
     }
 
+    img {
+      width: 70%;
+      height: 50%;
+      z-index: 1;
+    }
+
     figcaption {
       display: flex;
       justify-content: center;

@@ -25,11 +25,16 @@ export const Container = styled.div`
     justify-content: flex-end;
     width: 100%;
 
+    :hover {
+      width: 95%;
+    }
+
     button.back-catalog {
       border: none;
       background: none;
       color: #000000;
       width: 25%;
+      margin: 0 20px;
 
       svg {
         padding-right: 5px;
