@@ -1,22 +1,23 @@
 import styled from 'styled-components';
 
 interface ContainerProps {
-  windowDimensions: number;
+  windowHeight: number;
+  windowWidth: number;
 }
 
 export const Container = styled.div<ContainerProps>`
   flex: 1;
+  display: flex;
+  flex-direction: column;
 
   color: #000000;
   background-color: #ffffff;
   border: 2px solid #dddddd;
-  min-width: 450px;
-  max-height: ${(props) => `${props.windowDimensions * 0.75}px`};
+  min-width: 430px;
+
+  max-height: ${(props) => `${props.windowHeight * 0.75}px`};
   text-transform: capitalize;
   transition: border 0.2s;
-
-  display: flex;
-  flex-direction: column;
 
   :hover {
     border: 4px solid #dddddd;

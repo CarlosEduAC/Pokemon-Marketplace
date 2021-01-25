@@ -17,7 +17,7 @@ interface CartProps {
 }
 
 const Cart: React.FC<CartProps> = ({ theme }) => {
-  const { windowHeight } = useWindow();
+  const { windowHeight, windowWidth } = useWindow();
 
   const { pokemonListSelected, totalPrice, setEmpty } = useCart();
 
@@ -34,7 +34,7 @@ const Cart: React.FC<CartProps> = ({ theme }) => {
   };
 
   return (
-    <Container windowDimensions={windowHeight}>
+    <Container windowHeight={windowHeight} windowWidth={windowWidth}>
       <header>
         <h1>Carrinho</h1>
       </header>

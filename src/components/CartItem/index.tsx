@@ -21,12 +21,12 @@ const CartItem: React.FC<CartItemProps> = ({ pokemon }) => {
 
       <div className="cart-item">
         <div className="cart-qtd">
-          <button type="button" onClick={() => increment(pokemon.name)}>
-            <ImPlus size={12} />
-          </button>
-          <span>{pokemon.quantity}</span>
           <button type="button" onClick={() => decrement(pokemon.name)}>
             <ImMinus size={12} />
+          </button>
+          <span>{pokemon.quantity}</span>
+          <button type="button" onClick={() => increment(pokemon.name)}>
+            <ImPlus size={12} />
           </button>
         </div>
 

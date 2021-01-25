@@ -103,12 +103,12 @@ const CardInfo: React.FC<CardInfoProps> = ({ id, backToCatalog }) => {
       </div>
 
       <button type="button" onClick={() => addToCart(pokemon as Pokemon)}>
-        <ImPlus size={18} />
         <span>Adicionar</span>
+        <ImPlus size={18} />
       </button>
 
       <div className="block">
-        <p>Tipos </p>
+        <p>Tipos</p>
         <div>
           {pokemonApi?.types.map((type) => {
             return <span className="item">{type}</span>;
@@ -117,7 +117,7 @@ const CardInfo: React.FC<CardInfoProps> = ({ id, backToCatalog }) => {
       </div>
 
       <div className="block">
-        <p>Movimentos: </p>
+        <p className="p-name">Movimentos</p>
         <div className="moves">
           {pokemonApi?.moves.map((move) => {
             return <span className="item">{move}</span>;

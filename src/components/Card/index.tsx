@@ -54,11 +54,20 @@ const Card: React.FC<CardProps> = ({ id, name, handleShowInfo }) => {
         >
           <ImInfo className="info-icon" />
         </button>
-        <img src={pokemon?.image} alt={pokemon?.name} />
+
+        <button
+          className="img-poke"
+          type="button"
+          onClick={() => handleShowInfo(id)}
+        >
+          <img src={pokemon?.image} alt={pokemon?.name} />
+        </button>
+
         <figcaption>
           <strong>{pokemon?.name}</strong>
           <div>
             <img src={PokeCoinImg} alt={pokemon?.price} />
+
             <span>{pokemon?.price}</span>
           </div>
           <button type="button" onClick={() => addToCart(pokemon as Pokemon)}>

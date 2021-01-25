@@ -9,11 +9,18 @@ import LogoImg from '../../assets/logo.png';
 import DarkTheme from '../../styles/dark';
 import FireTheme from '../../styles/fire';
 import IceTheme from '../../styles/ice';
+import WaterTheme from '../../styles/water';
+import GrassTheme from '../../styles/grass';
+import ElectricTheme from '../../styles/electric';
+import DragonTheme from '../../styles/dragon';
+import FairyTheme from '../../styles/fairy';
+import GroundTheme from '../../styles/ground';
+import PoisonTheme from '../../styles/poison';
 
 import { Container } from './styles';
 
 interface ParamsProps {
-  type: 'dark' | 'fire' | 'ice';
+  type: string;
 }
 
 const Store: React.FC = () => {
@@ -24,7 +31,25 @@ const Store: React.FC = () => {
   return (
     <ThemeProvider
       theme={
-        type === 'dark' ? DarkTheme : type === 'fire' ? FireTheme : IceTheme
+        type === 'dark'
+          ? DarkTheme
+          : type === 'fire'
+          ? FireTheme
+          : type === 'ice'
+          ? IceTheme
+          : type === 'water'
+          ? WaterTheme
+          : type === 'electric'
+          ? ElectricTheme
+          : type === 'dragon'
+          ? DragonTheme
+          : type === 'fairy'
+          ? FairyTheme
+          : type === 'ground'
+          ? GroundTheme
+          : type === 'poison'
+          ? PoisonTheme
+          : GrassTheme
       }
     >
       <Container>
@@ -40,7 +65,25 @@ const Store: React.FC = () => {
           filter={pokemonName}
           type={type}
           theme={
-            type === 'dark' ? DarkTheme : type === 'fire' ? FireTheme : IceTheme
+            type === 'dark'
+              ? DarkTheme
+              : type === 'fire'
+              ? FireTheme
+              : type === 'ice'
+              ? IceTheme
+              : type === 'water'
+              ? WaterTheme
+              : type === 'electric'
+              ? ElectricTheme
+              : type === 'dragon'
+              ? DragonTheme
+              : type === 'fairy'
+              ? FairyTheme
+              : type === 'ground'
+              ? GroundTheme
+              : type === 'poison'
+              ? PoisonTheme
+              : GrassTheme
           }
         />
       </Container>

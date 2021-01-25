@@ -70,10 +70,18 @@ export const Container = styled.section`
       }
     }
 
-    img {
-      width: 70%;
-      height: 50%;
-      z-index: 1;
+    button.img-poke {
+      border: 0;
+      background: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 80%;
+        height: 100%;
+        z-index: 1;
+      }
     }
 
     figcaption {

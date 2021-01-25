@@ -8,17 +8,17 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
-  /* background-color: ${(props) => props.theme.primary}; */
-
   padding: 40px;
   color: #000000;
 
   h1 {
     margin: 20px 0;
+    font-size: 48px;
   }
 
   p {
     font-weight: 400;
+    font-size: 18px;
     margin-bottom: 40px;
   }
 
@@ -32,7 +32,6 @@ export const Container = styled.div`
     figure {
       width: 200px;
       height: 200px;
-      /* background-color: ${(props) => props.theme.secondary}; */
       border: 1px solid #a8a8b3;
       border-radius: 4px;
       padding: 5px;

@@ -95,11 +95,15 @@ export const Container = styled.div`
     width: 95%;
 
     p {
-      width: 11%;
+      width: 50px;
       margin: 10px 0;
       font-size: 18px;
       font-weight: 500;
       border-bottom: 2px solid ${(props) => props.theme.primary};
+    }
+
+    p.p-name {
+      width: 100px;
     }
 
     div {
