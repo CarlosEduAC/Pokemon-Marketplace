@@ -11,13 +11,13 @@
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/CarlosEduAC/Pokemon-Marketplace?color=009bd9">
 
-  <a href="https://github.com/CarlosEduAC/StarWars-WebApiRestWithNode/commits/main">
+  <a href="https://github.com/CarlosEduAC/Pokemon-Marketplace/commits/main">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/CarlosEduAC/HPokemon-Marketplace?color=009bd9">
   </a>
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-009db9">
 
-  <a href="https://github.com/CarlosEduAC/StarWars-ApiRest/stargazers">
+  <a href="https://github.com/CarlosEduAC/Pokemon-Marketplace/stargazers">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/CarlosEduAC/Pokemon-Marketplace?color=009db9&logo=github">
   </a>
 </p>
@@ -77,11 +77,11 @@ Aplicação responsiva e composta pelas seguintes funcionalidades:
 
 ### 📱 [Pokémon Marketplace](https://pokemonmarketplace.herokuapp.com/) Screenshot
 <div style="display: flex; flex-direction: 'row'; align-items: 'center';">
-  <img src="./.github/HomeMobile.png" width="400px">
-  <img src="./.github/PokeStoreMobile.png" width="400px">
-  <img src="./.github/CartMobile.png" width="400px">
-  <img src="./.github/DetailsMobile.png" width="400px">
-  <img src="./.github/ModalMobile.png" width="400px">
+  <img src="./.github/HomeMobile.png" width="300px">
+  <img src="./.github/PokeStoreMobile.png" width="300px">
+  <img src="./.github/CartMobile.png" width="300px">
+  <img src="./.github/DetailsMobile.png" width="300px">
+  <img src="./.github/ModalMobile.png" width="300px">
 </div>
 
 ## :four: Como rodar local
@@ -89,7 +89,7 @@ Aplicação responsiva e composta pelas seguintes funcionalidades:
 ### 💻 Rode a Aplicação Web
 
 ```bash
-# Clone o Repositoria
+# Clone o Repositório
 $ git clone https://github.com/CarlosEduAC/Pokemon-Marketplace.git
 ```
 
