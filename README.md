@@ -12,7 +12,7 @@
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/CarlosEduAC/Pokemon-Marketplace?color=009bd9">
 
   <a href="https://github.com/CarlosEduAC/Pokemon-Marketplace/commits/main">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/CarlosEduAC/HPokemon-Marketplace?color=009bd9">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/CarlosEduAC/Pokemon-Marketplace?color=009bd9">
   </a>
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-009db9">
